@@ -1,10 +1,15 @@
 using Ecomman.DataAccess;
+using Ecomman.OrderDetailService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSqlServer<ECommanDbContext>(builder.Configuration.GetConnectionString("connString"));
+builder.Services.AddHttpClient<IOrderDetailProvider, OrderDetailProvider>(config =>
+{
+    config.BaseAddress = new Uri("https://localhost:7039/");
+});
 
 var app = builder.Build();
 

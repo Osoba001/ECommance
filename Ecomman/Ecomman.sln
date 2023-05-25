@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecomman", "Ecomman\Ecomman.csproj", "{4F83CA46-49B9-43EF-B9CA-D3B12A10D01D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderService\OrderService.csproj", "{D45B9C5C-418B-451E-86B3-55D1E274F327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4F83CA46-49B9-43EF-B9CA-D3B12A10D01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F83CA46-49B9-43EF-B9CA-D3B12A10D01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F83CA46-49B9-43EF-B9CA-D3B12A10D01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45B9C5C-418B-451E-86B3-55D1E274F327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45B9C5C-418B-451E-86B3-55D1E274F327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45B9C5C-418B-451E-86B3-55D1E274F327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45B9C5C-418B-451E-86B3-55D1E274F327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

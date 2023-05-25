@@ -7,27 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ecomman.DataAccess;
 using Ecomman.Models;
+using Ecomman.OrderDetailService;
 
 namespace Ecomman.Controllers
 {
     public class OrderDetailsController : Controller
     {
         private readonly ECommanDbContext _context;
+        private readonly IOrderDetailProvider orderDetailProvider;
 
-        public OrderDetailsController(ECommanDbContext context)
+        public OrderDetailsController(ECommanDbContext context, IOrderDetailProvider orderDetailProvider)
         {
             _context = context;
+            this.orderDetailProvider = orderDetailProvider;
         }
 
         // GET: OrderDetails
         public async Task<IActionResult> Index()
         {
-              return  _context.OrderDetail != null ? 
-                          View(await _context.OrderDetail
-                          .Include(x => x.Product)
-                          .Include(x=>x.Order).ThenInclude(x=>x.User)
-                          .ToListAsync()) :
-                          Problem("Entity set 'ECommanDbContext.OrderDetail'  is null.");
+            return View(await orderDetailProvider.Get());
         }
 
         // GET: OrderDetails/Details/5
@@ -59,7 +57,7 @@ namespace Ecomman.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Quantity")] OrderDetail orderDetail)
+        public async Task<IActionResult> Create([Bind("Id,Quantity")] OrderDetailMono orderDetail)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +89,7 @@ namespace Ecomman.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Quantity")] OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Quantity")] OrderDetailMono orderDetail)
         {
             if (id != orderDetail.Id)
             {

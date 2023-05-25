@@ -14,6 +14,6 @@ namespace Ecomman.DataAccess
         public DbSet<Order> Order { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Product> Product { get; set; }
-        public DbSet<Ecomman.Models.OrderDetail> OrderDetail { get; set; } = default!;
+        public DbSet<Ecomman.Models.OrderDetailMono> OrderDetail { get; set; } = default!;
     }
 }
